@@ -1,6 +1,6 @@
 # Adroit Instruction
 
-To get started, you should download adroit demos, pretrained models, and example logs with the following link to create `vrl3data` folder: https://drive.google.com/drive/folders/14rH_QyigJLDWsacQsrSNV7b0PjXOGWwD?usp=sharing. In addtion, you should change the `local_data_dir` in each `cfg/config.yaml` to the path of `vrl3data`.
+To get started, you should download adroit demos, pretrained models, and example logs with the following link to create `vrl3data` folder: [vrl3data](https://drive.google.com/drive/folders/14rH_QyigJLDWsacQsrSNV7b0PjXOGWwD?usp=sharing). In addtion, you should change the `local_data_dir` in each `cfg/config.yaml` to the path of `vrl3data`.
 
 ## Extra Datasets
 Some algorithms will use the [Places](http://places2.csail.mit.edu/download.html) dataset for data augmentation, which can be downloaded by running
@@ -32,10 +32,6 @@ To use SAM-G, you need to modify the config files in `src/cfgs_adroit/{ALGORITHM
 - extra_masked_image_list: the list of auxiliary masked images of the original image. You can input a small part of the target object for each masked image. Can be empty.
 
 
-## Evaluate Config file
-The eval config file is located at `DHM/cfg/task`. You can change the config file for different setups.
-
-
 ## Training
 ```
 cd src/
@@ -49,10 +45,10 @@ cd src/
 model_dir=/path/to/model
 bash adroit_eval.sh test_vrl3_color-easy  #{mode}_{agent_name}_{generalization type}
 ```
-You should change the `model_dir` to your own path to load the trained model. The eval config file is located at `DHM/cfg/task`. You can change the config file for different setups. Simply modity `type` and `difficulty` in the `background`
+You should change the `model_dir` to your own path to load the trained model. The eval config file is located at `DHM/cfg/task`. You can change the config file for different setups. Simply modity `type` and `difficulty` in the `background` to evaluate under different settings.
 
 ## Checkpoints
-We have provided some [checkpoints](https://drive.google.com/drive/folders/1a3d5d8n6cl0fr54rq8T31D_UL4_ynv6v?usp=drive_link) for the tasks together with their handmade masked images in `site_images/`. Use our scripts to evaluate the checkpoints.
+We have provided some [checkpoints](https://drive.google.com/drive/folders/1a3d5d8n6cl0fr54rq8T31D_UL4_ynv6v?usp=drive_link) for the tasks together with their handmade masked images in `reference_images/`. Use our scripts to evaluate the checkpoints.
 
 
 ## Imitation Learning

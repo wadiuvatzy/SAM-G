@@ -127,9 +127,9 @@ hydra:
 
 use_SAM_g: true
 handmade_4_SAM:
-  original_image: ../../site_images/door_0.png
-  masked_image: ../../site_images/door_masked_0.jpg
+  original_image: ../../reference_images/door_0.png
+  masked_image: ../../reference_images/door_masked_0.jpg
   extra_points_list: [[38, 14], [42, 31], [28,34], [36,59], [38,61], [37, 75]] # for door_0 we provided
    # [[36,42], [42, 44], [46, 45], [42, 68], [65, 60], [50, 64], [57, 61]] # for hammer_0 we provided
    # [[77,45],[80,77],[93,79],[67,88],[86,87],[133,78],[122,95]] for pen_160_0 we provided
-  extra_masked_images_list: [../../site_images/door_masked_0_1.jpg, ../../site_images/door_masked_0_2.jpg] # can be empty
+  extra_masked_images_list: [../../reference_images/door_masked_0_1.jpg, ../../reference_images/door_masked_0_2.jpg] # can be empty
