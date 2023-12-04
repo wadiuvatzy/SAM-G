@@ -48,7 +48,7 @@ bash adroit_eval.sh test_vrl3_color-easy  #{mode}_{agent_name}_{generalization t
 You should change the `model_dir` to your own path to load the trained model. The eval config file is located at `DHM/cfg/task`. You can change the config file for different setups. Simply modity `type` and `difficulty` in the `background` to evaluate under different settings.
 
 ## Checkpoints
-We have provided some [checkpoints](https://drive.google.com/drive/folders/1a3d5d8n6cl0fr54rq8T31D_UL4_ynv6v?usp=drive_link) for the tasks together with their handmade masked images in `reference_images/`. Use our scripts to evaluate the checkpoints.
+We have provided some [checkpoints](https://drive.google.com/drive/folders/1a3d5d8n6cl0fr54rq8T31D_UL4_ynv6v?usp=sharing) for the tasks together with their handmade masked images in `reference_images/`. Use our scripts to evaluate the checkpoints.
 
 
 ## Imitation Learning
