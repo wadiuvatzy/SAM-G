@@ -239,8 +239,7 @@ class PIEGAgent(VRL3Agent):
         if update_encoder: # true
             obs = self.encoder(obs)
             # strong augmentation
-            # aug_obs = self.encoder(random_overlay(original_obs, self.device))
-            aug_obs = self.encoder(original_obs)
+            aug_obs = self.encoder(random_overlay(original_obs, self.device))
         else:
             with torch.no_grad():
                 obs = self.encoder(obs)
