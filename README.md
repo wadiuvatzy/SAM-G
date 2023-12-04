@@ -56,12 +56,12 @@ We have provided some [checkpoints](https://drive.google.com/drive/folders/1a3d5
 
 
 ## Imitation Learning
-To run a imitation learning task, you should make sure that you already have a trained agent acting like an expert to generate demos. Then you use
+To run a imitation learning task, you should make sure that you already have a trained agent (you can also use the checkpoints we provided) acting like an expert to generate demos. Then use
 ```
 cd src/imitation_learning
 bash generation.sh
 ```
-to generate demos under the original setting (no color change or background video). Afterwards, running 
+to generate demos under the original setting (no color change or background video). Afterwards, run
 ```
 bash train_demos.sh
 ```
