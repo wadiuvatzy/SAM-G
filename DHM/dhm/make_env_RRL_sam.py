@@ -19,7 +19,7 @@ from collections import deque
 import torch.nn.functional as F
 import matplotlib.pyplot as plt
 
-import dhm.persam_utils as psf
+import dhm.persam_utils as psu
 import sys
 sys.path.append("../..")
 from efficientvit.sam_model_zoo import create_sam_model
@@ -821,8 +821,8 @@ class BasicDHMEnvWithSAM(gym.Env, ABC):
 
 		sim = (sim + dino_sim) / 2
 
-		topk_xy, topk_label = psf.point_selection(sim, topk=1)
-		n_xy, n_label = psf.negative_point_selection(sim, topk=1)
+		topk_xy, topk_label = psu.point_selection(sim, topk=1)
+		n_xy, n_label = psu.negative_point_selection(sim, topk=1)
 		topk_xy = np.concatenate((topk_xy, n_xy), axis=0)
 		topk_label = np.concatenate((topk_label, n_label), axis=0)
 
@@ -900,11 +900,11 @@ class BasicDHMEnvWithSAM(gym.Env, ABC):
 
 			sim = (sim + dino_sim) / 2
 
-			topk_xy_, topk_label_ = psf.point_selection(sim, topk=1)
+			topk_xy_, topk_label_ = psu.point_selection(sim, topk=1)
 			topk_xy = np.concatenate((topk_xy, topk_xy_), axis=0)
 			topk_label = np.concatenate((topk_label, topk_label_), axis=0)
 
-		mask_weights = psf.Mask_Weights().cuda()
+		mask_weights = psu.Mask_Weights().cuda()
 		mask_weights.train()
 
 		optimizer = torch.optim.AdamW(mask_weights.parameters(), lr=1e-3, eps=1e-4)
@@ -944,7 +944,7 @@ class BasicDHMEnvWithSAM(gym.Env, ABC):
 				).squeeze()
 
 				sim = (sim + dino_sim) / 2
-				xy_, label_ = psf.point_selection(sim, topk=1)
+				xy_, label_ = psu.point_selection(sim, topk=1)
 				xy = np.concatenate((xy, xy_), axis=0)
 				label = np.concatenate((label, label_), axis=0)
 
@@ -959,8 +959,8 @@ class BasicDHMEnvWithSAM(gym.Env, ABC):
 			logits_high = logits_high * weights
 			logits_high = logits_high.sum(0).unsqueeze(0)
 
-			dice_loss = psf.calculate_dice_loss(logits_high, gt_mask)
-			focal_loss = psf.calculate_sigmoid_focal_loss(logits_high, gt_mask)
+			dice_loss = psu.calculate_dice_loss(logits_high, gt_mask)
+			focal_loss = psu.calculate_sigmoid_focal_loss(logits_high, gt_mask)
 			loss = dice_loss + focal_loss
 
 			optimizer.zero_grad()
@@ -1126,8 +1126,8 @@ class BasicDHMEnvWithSAM(gym.Env, ABC):
 		).squeeze()
 
 		f_sim = (f_dino_sim + f_sim) / 2
-		topk_xy, topk_label = psf.point_selection(f_sim, topk=1)
-		n_xy, n_label = psf.negative_point_selection(f_sim, topk=1)
+		topk_xy, topk_label = psu.point_selection(f_sim, topk=1)
+		n_xy, n_label = psu.negative_point_selection(f_sim, topk=1)
 		topk_xy = np.concatenate((topk_xy, n_xy), axis=0)
 		topk_label = np.concatenate((topk_label, n_label), axis=0)
 
@@ -1153,7 +1153,7 @@ class BasicDHMEnvWithSAM(gym.Env, ABC):
 			).squeeze()
 
 			sim = (dino_sim + sim) / 2
-			xy_, label_ = psf.point_selection(sim, topk=1)
+			xy_, label_ = psu.point_selection(sim, topk=1)
 			topk_xy = np.concatenate((topk_xy, xy_), axis=0)
 			topk_label = np.concatenate((topk_label, label_), axis=0)
 			
@@ -1181,7 +1181,7 @@ class BasicDHMEnvWithSAM(gym.Env, ABC):
 			y_max = y.max()
 			input_box = np.array([x_min, y_min, x_max, y_max])
 
-		n_point, n_label = psf.negative_point_selection(f_sim, topk=1, box=input_box)
+		n_point, n_label = psu.negative_point_selection(f_sim, topk=1, box=input_box)
 		topk_xy = np.concatenate((topk_xy, n_point), axis=0)
 		topk_label = np.concatenate((topk_label, n_label), axis=0)
 
@@ -1206,7 +1206,7 @@ class BasicDHMEnvWithSAM(gym.Env, ABC):
 			input_box = np.array([x_min, y_min, x_max, y_max])
 
 		# n_point, n_label = negative_point_selection(f_sim, topk=1, box=input_box)
-		n_point, n_label = psf.negative_point_selection(f_sim, topk=1)
+		n_point, n_label = psu.negative_point_selection(f_sim, topk=1)
 		topk_xy = np.concatenate((topk_xy, n_point), axis=0)
 		topk_label = np.concatenate((topk_label, n_label), axis=0)
 
