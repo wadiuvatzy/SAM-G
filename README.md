@@ -1,7 +1,7 @@
 
 
-# RL-ViGen: A Reinforcement Learning Benchmark for visual generalization
-[Website](https://yanjieze.com/SAM-G/) | [Paper]
+# SAM-G: **S**egment **A**nything **M**odel for **G**eneralizable visual RL
+[Website](https://yanjieze.com/SAM-G/) | [Paper]()
 
 We have released SAM-G -- **S**egment **A**nything **M**odel for
 **G**eneralizable visual RL, a novel framework that
@@ -109,3 +109,16 @@ Our training code is based on [DrQv2](https://github.com/facebookresearch/drqv2)
 And we also thank the codebase of [VRL3](https://github.com/microsoft/VRL3), [DMC-GB](https://github.com/nicklashansen/dmcontrol-generalization-benchmark), [SECANT](https://github.com/DrJimFan/SECANT), and [kyoran](https://github.com/kyoran/CarlaEnv-Benchmark).
 
 ## License
+The majority of DrQ-v2, DMCGB, VRL3 is licensed under the MIT license. Habitat Lab, dmc2gym, mujoco-py are also licensed under the MIT license. However portions of the project are available under separate license terms: DeepMind,  mj_envs, and mjrl is licensed under the Apache 2.0 license.Gibson based task datasets, the code for generating such datasets, and trained models are distributed with [Gibson Terms of Use](https://storage.googleapis.com/gibson_material/Agreement%20GDS%2006-04-18.pdf) and under [CC BY-NC-SA 3.0 US license](https://creativecommons.org/licenses/by-nc-sa/3.0/us/). CARLA specific assets are distributed under CC-BY License. The ad-rss-lib library compiled and linked by the [RSS Integration build variant](Docs/adv_rss.md) introduces [LGPL-2.1-only License](https://opensource.org/licenses/LGPL-2.1). Unreal Engine 4 follows its [own license terms](https://www.unrealengine.com/en-US/faq).
+
+
+## Citation
+If you use our method or code in your research, please consider citing the paper as follows:
+```
+@article{Wang2023SAMG,
+  title={Generalizable Visual Reinforcement Learning with Segment Anything Model},
+  author={Ziyu Wang and Yanjie Ze and Yifei Sun and Zhecheng Yuan and Huazhe Xu},
+  journal={arXiv}, 
+  year={2023},
+  }
+```
