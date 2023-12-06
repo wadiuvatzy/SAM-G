@@ -1,6 +1,6 @@
 
 
-# SAM-G: **S**egment **A**nything **M**odel for **G**eneralizable visual RL
+# Generalizable Visual Reinforcement Learning with Segment Anything Model
 [Website](https://yanjieze.com/SAM-G/) | [Paper]()
 
 We have released SAM-G -- **S**egment **A**nything **M**odel for
@@ -13,6 +13,10 @@ ages for agents directly. Evaluated across 8 DMControl
 tasks and 3 Adroit tasks, SAM-G significantly improves the
 visual generalization ability without altering the RL agents’
 architecture but merely their observations.
+
+
+https://github.com/wadiuvatzy/SAM-G/assets/59699800/a8d51d58-26de-4662-a12c-02eb5bff4523
+
 
 
 
