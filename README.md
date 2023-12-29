@@ -1,7 +1,7 @@
 
 
 # Generalizable Visual Reinforcement Learning with Segment Anything Model
-[Website](https://yanjieze.com/SAM-G/) | [Paper]()
+[Website](https://yanjieze.com/SAM-G/) | [arXiv](https://arxiv.org/abs/2312.17116)
 
 We have released SAM-G -- **S**egment **A**nything **M**odel for
 **G**eneralizable visual RL, a novel framework that leverages the promptable segmentation ability of Segment Anything Model (SAM) to enhance the generalization capabilities of visual RL agents. We utilize image features from DINOv2 and SAM to find correspondence as point prompts to SAM, and then SAM produces high-quality masked images for agents directly. Evaluated across 8 DMControl tasks and 3 Adroit tasks, SAM-G significantly improves the visual generalization ability without altering the RL agents’ architecture but merely their observations.
